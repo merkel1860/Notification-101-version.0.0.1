@@ -34,10 +34,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayNotification() {
-        // Create an explicit intent for an Activity in your app
-        Intent intent = new Intent(this, AlertDetails.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        // create a PendingItent to explicitly reach a  activity of tapping on notification pop up.
+        PendingIntent pendingIntent = createPendingIntent();
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.black_woman)
                 .setContentTitle(noTextTitle)
@@ -48,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
                 .setAutoCancel(true);
         notificationManagerCompat  = NotificationManagerCompat.from(this);
         notificationManagerCompat.notify(notificationID,builder.build());
+    }
+
+    private PendingIntent createPendingIntent() {
+        // Create an explicit intent for an Activity in your app
+        Intent intent = new Intent(this, AlertDetails.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        return pendingIntent;
     }
 
     private void createNotificationChannel() {
