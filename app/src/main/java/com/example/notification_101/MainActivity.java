@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
             "ara that maybe one day, you may get it wrong and start messing arount as if there was" +
             "something wrong with your story.";
     private int notificationID = 0;
+    private NotificationManagerCompat notificationManagerCompat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 .setContentTitle(noTextTitle)
                 .setContentText(noTextContent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        NotificationManagerCompat notificationManagerCompat  = NotificationManagerCompat.from(this);
+        notificationManagerCompat  = NotificationManagerCompat.from(this);
         notificationManagerCompat.notify(notificationID,builder.build());
     }
 
@@ -62,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void startNotification(View view) {
         displayNotification();
+
+    }
+
+    public void stopNotification(View view) {
+        if(notificationManagerCompat == null){
+            Toast.makeText(this,
+                    "Please activate the Notification before",Toast.LENGTH_LONG).show();
+        }else {
+            notificationManagerCompat.cancel(notificationID);
+        }
 
     }
 }
