@@ -1,6 +1,5 @@
 package com.example.notification_101;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -15,12 +14,12 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private static final String CHANNEL_ID = "firstSession";
-    private CharSequence noTextTitle = "Welcome back Nebel";
-    private CharSequence noTextContent = "This a friendly reminder of how much Marie love you and " +
+    private final CharSequence noTextTitle = "Welcome back Nebel";
+    private final CharSequence noTextContent = "This a friendly reminder of how much Marie love you and " +
             "to make sure that you understand as a truth unalterable and eternal; otherwise, chance" +
-            "ara that maybe one day, you may get it wrong and start messing arount as if there was" +
+            "ara that maybe one day, you may get it wrong and start messing around as if there was" +
             "something wrong with your story.";
-    private int notificationID = 0;
+    private final int notificationID = 0;
     private NotificationManagerCompat notificationManagerCompat;
 
     @Override
