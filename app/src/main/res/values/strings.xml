@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Notification-101</string>
+    <string name="channel_name">cheating_is_cheap</string>
+    <string name="channel_description">Think about as if you have been told to forget your own existence</string>
+    <string name="start_button">Start</string>
+    <string name="stop_button">Stop</string>
+</resources>
